@@ -41,6 +41,8 @@ end
 # Include rails 12factor to server assets on heroku
 gem 'rails_12factor', group: :production
 
+gem 'bootstrap-sass', '~> 3.1.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
