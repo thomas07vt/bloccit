@@ -27,6 +27,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Use the Faker gem to create seed data
+gem 'faker'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -42,6 +45,8 @@ end
 gem 'rails_12factor', group: :production
 
 gem 'bootstrap-sass', '~> 3.1.1'
+
+gem 'rb-readline'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
