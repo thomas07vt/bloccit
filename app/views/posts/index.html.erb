@@ -1,5 +1,4 @@
 <h1>All Posts</h1>
-<% @posts.sort! { |a, b| b.created_at <=> a.created_at} %>
 <% @posts.each do |post| %>
   <div class="media">
     <div class="media-body">
