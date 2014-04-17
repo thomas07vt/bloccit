@@ -28,7 +28,7 @@ end
 
 user = User.first
 user.skip_reconfirmation!
-user.update_attributes(email: 'thomas07vt@gmail.com', password: 'password', password_confirmation: 'password')
+user.update_attributes(email: ENV['BLOCCIT_DEFAULT_EMAIL'], password: ENV['BLOCCIT_DEFAULT_PASS'], password_confirmation: ENV['BLOCCIT_DEFAULT_PASS'], name: ENV['BLOCCIT_DEFAULT_NAME'])
 
 puts "Seed finished"
 puts "#{User.count} users created"
