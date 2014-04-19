@@ -1,12 +1,17 @@
-<h1>All Posts</h1>
+<h1><%= @topic.name %></h1>
+
+<% if policy(@topic).update? %>
+  <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
+<% end %>
 
 <div class="row">
   <div class="col-md-8">
+    <p class="lead"><%= @topic.description %></p>
     <% @posts.each do |post| %>
-      <div class="media"> 
+      <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <p><%= link_to post.title, post %></p>
+            <%= link_to post.title, [@topic, post] %>
           </h4>
           <small>
             submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
@@ -18,7 +23,7 @@
   </div>
   <div class="col-md-4">
     <% if policy(Post.new).create? %>
-      <%= link_to "New Post", new_post_path, class: 'btn btn-success' %>
+      <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
     <% end %>
   </div>
 </div>
