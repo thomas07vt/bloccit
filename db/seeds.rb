@@ -2,7 +2,7 @@ require 'faker'
 
 # Create 15 topics for which the posts will belong to.
 topics = []
-15.times do
+25.times do
   topics << Topic.create(
     name: Faker::Lorem.sentence, 
     description: Faker::Lorem.paragraph
@@ -26,8 +26,9 @@ end
   # to avoid sending an email. The `save` method updates the database.
 
   #Create 5 to 10 posts for each user that is created.
-  rand(5..10).times do
-    topic = topics.first
+  rand(10..50).times do
+    index = rand(0..(topics.count - 1))
+    topic = topics[index]
     post = Post.create(
       user: user,
       title: Faker::Lorem.sentence, 
@@ -36,7 +37,7 @@ end
     # set the created_at to a time within the past year
     post.update_attribute(:created_at, Time.now - rand(600..31536000))
 
-    topics.rotate!
+    #topics.rotate!
   end
 
   #Create
