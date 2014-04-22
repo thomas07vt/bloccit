@@ -1,0 +1,14 @@
+<h1>Create a New Comment</h1>
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for Comments</p>
+    <ul>
+      <li>Make sure the its got rythm.</li>
+      <li>Don't use the letter "z".</li>
+      <li>The incessant use of hashtags will get you promoted.</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <%= render partial: 'form', locals: { post: @post, comment: @comment, topic: @topic } %>
+  </div>
+</div>
