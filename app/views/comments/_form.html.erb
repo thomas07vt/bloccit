@@ -1,15 +1,15 @@
 <%= form_for [topic, post, comment] do |f| %>
-  <% if comment.errors.any? %>
+  <% if session[:comment_errors] %>
     <div class="alert alert-danger">
-      <h4>There are <%= pluralize(comment.errors.count, "error") %>.</h4>
+      <h4>There are <%= pluralize(session[:comment_errors].count, "error") %>.</h4>
       <ul>
-        <% comment.errors.full_messages.each do |msg| %>
+        <% session[:comment_errors].each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  <%= form_group_tag(comment.errors[:body]) do %>
+  <%= form_group_tag(session[:comment_errors] || comment.errors[:body]) do %>
     <%= f.label :comment %>
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter comment here..." %>
   <% end %>
