@@ -1,5 +1,5 @@
 <%= form_for [topic, post, comment] do |f| %>
-  <% if session[:comment_errors] %>
+  <% if session[:comment_errors] && referer == request.original_url %>
     <div class="alert alert-danger">
       <h4>There are <%= pluralize(session[:comment_errors].count, "error") %>.</h4>
       <ul>
@@ -9,7 +9,7 @@
       </ul>
     </div>
   <% end %>
-  <%= form_group_tag(session[:comment_errors] || comment.errors[:body]) do %>
+  <%= form_group_tag( referer == request.original_url ? session[:comment_errors] || comment.errors[:body] : comment.errors[:body] ) do %>
     <%= f.label :comment %>
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter comment here..." %>
   <% end %>
