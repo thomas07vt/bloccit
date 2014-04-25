@@ -42,6 +42,7 @@
 <div class="col-md-12">
   <div class="col-md-1">
   </div>
+  <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
   <div class="col-md-8">
     <%= render partial: "comments/comment", collection: @comments %>
   </div>
