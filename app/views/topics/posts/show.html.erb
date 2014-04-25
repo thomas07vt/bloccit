@@ -33,8 +33,8 @@
 <div class="col-md-12">
   <div class="col-md-1">
   </div>
-  <div class="col-md-8">
-    <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment, referer: @referer } %>
+  <div class="col-md-8 ">
+    <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
   </div>
   <div class="col-md-3">
   </div>
@@ -43,7 +43,7 @@
   <div class="col-md-1">
   </div>
   <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
-  <div class="col-md-8">
+  <div class="col-md-8 js-comments">
     <%= render partial: "comments/comment", collection: @comments %>
   </div>
   <div class="col-md-3">
